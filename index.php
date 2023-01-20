@@ -1,5 +1,7 @@
 <?php
 session_start();
+require('controllers\DAO.php');
+$dao = new DAO();
 include "utils\utils.php";
 
 /// THIS IS THE ROUTE LIST BELOW

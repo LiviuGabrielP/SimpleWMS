@@ -1,11 +1,24 @@
 <?php
 
 $pagename = "Employees";
-$entries = array(
-    array("Name" => "John", "Age" => 25, "Gender" => "M", "Pay" => "None"),
-    array("Name" => "Jane", "Age" => 22, "Gender" => "M", "Pay" => "None" ),
-    array("Name" => "Bob", "Age" => 29, "Gender" => "M", "Pay" => "None" ),
-    array("Name" => "Tanti Geta", "Age" => 29, "Gender" => "M", "Pay" => "None" ),
-);
+
+$users = $dao->select("users");
+$tableEntries = $dao->getColumns("users");
+
+
+// GET TABLE TITLES
+foreach($tableEntries as $column)
+{
+    $columns[] = $column;
+}
+
+foreach ($users as $user) 
+{
+    $entries[] = $user;
+}
+
+
+
+
 
 require "views/employees.view.php";

@@ -57,23 +57,28 @@
           <?php
     
     $numEntries = count($entries);
+    $numcolumns= count($columns);
     
     echo "<table>";
+     echo "<tr>";
+    for($i=0; $i < $numcolumns ; $i++)    {
+
+      echo "<th>".$columns[$i]."</th>";
     
-    echo "<tr>";
-    echo "<th>Name</th>";
-    echo "<th>Age</th>";
-    echo "<th>Gender</th>";
-    echo "<th>Pay</th>";
+    }
+   
+    
+   
 
     echo "</tr>";
     
     for ($i = 0; $i < $numEntries; $i++) {
+            
         echo "<tr>";
-        echo "<td>" . $entries[$i]['Name'] . "</td>";
-        echo "<td>" . $entries[$i]['Age'] . "</td>";
-        echo "<td>" . $entries[$i]['Gender'] . "</td>";
-        echo "<td>" . $entries[$i]['Pay'] . "</td>";
+            for ($it = 0; $it < $numcolumns; $it++) {
+              echo "<td>" . $entries[$i][$columns[$it]] . "</td>";
+             
+            }
         echo "</tr>";
     }
     
