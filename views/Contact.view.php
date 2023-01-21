@@ -32,7 +32,8 @@
       <div class="content">
         <div class="row">
           <div class="col-md-12">
-            <h3 class="description">Your content here</h3>
+            <h3 class="description">Pls don't. We're tired :(</h3>
+            <img src="assets\img\tired.jpg" alt="tired,boss">
           </div>
         </div>
       </div>

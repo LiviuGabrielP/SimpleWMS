@@ -26,15 +26,19 @@ class DAO {
     }
 
     public function insert($table, $data) {
-        $columns = implode(", ", array_keys($data));
-        $values = ":" . implode(", :", array_keys($data));
+        // remove auto-increment column from data array
+        unset($data['auto_increment_col_name']);
+        $columns = implode(',', array_keys($data));
+        $values = ':' . implode(', :', array_keys($data));
         $query = "INSERT INTO $table ($columns) VALUES ($values)";
         $stmt = $this->conn->prepare($query);
         foreach ($data as $key => $value) {
             $stmt->bindValue(":$key", $value);
         }
+       // dd($stmt);
         $stmt->execute();
     }
+    
 
     public function update($table, $data, $where) {
         $set = "";

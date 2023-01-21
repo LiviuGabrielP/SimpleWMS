@@ -69,15 +69,27 @@
               </div>
             </div>
             <div class="card-body">
-            <form method="post" action="<?php performAuth()?>">
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required>
-            <br>
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
-            <br>
-            <input type="submit" name="login" value="Login">
-            </form>
+
+            <form role="form" class="text-start" method="post" action="/login">
+              
+            <div class="input-group input-group-outline my-3">
+                 <label for="username" class="form-label">Username:</label>
+                <input type="text" id="username" class="form-control" name="username" required>
+                </div>
+
+            
+                <div class="input-group input-group-outline mb-3">
+                <label class="form-label" for="password">Password:</label>
+            <input class="form-control" type="password" id="password" name="password" required>
+                </div>
+                
+                <div class="text-center">
+                  <button type="submit" name="login" value="login" class="btn bg-gradient-primary w-100 my-4 mb-2">Sign in</button>
+                </div>
+                <p class="mt-4 text-sm text-center">
+                  <a href = "/register"> Don't have an account? </a>
+                </p>
+             
 
             </div>
           </div>

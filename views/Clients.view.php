@@ -33,13 +33,29 @@
         <div class="row">
           <div class="col-md-12">
            
-          <form>
+     
 
-    <label for="search">Search:</label>
-    <input type="text" id="search" name="search">
 
-    <label for="order">Order by:</label>
+<form action="">
+
+    <label for="search">Filter:</label>
     <select id="order" name="filter">
+      <?php 
+      $numcolumns= count($client_columns);
+      for($i=0; $i < $numcolumns ; $i++)   
+       {
+
+        echo " <option  value=".$client_columns[$i].">$client_columns[$i]</option>";
+      
+      }?>
+      
+    </select>
+    <input type="text" id="search" name="search">
+    <input type="submit" value="Apply">
+</form>
+<form>
+    <label for="order">Order by:</label>
+    <select id="order" name="ordertype">
       <?php 
       $numcolumns= count($client_columns);
       for($i=0; $i < $numcolumns ; $i++)   
@@ -48,7 +64,7 @@
         echo " <option value=".$client_columns[$i].">$client_columns[$i]</option>";
       
       }?>
-        
+      
     </select>
 
     <label for="order">As:</label>
@@ -59,7 +75,6 @@
 
     <input type="submit" value="Apply">
 </form>
-
 
 
 
@@ -93,6 +108,8 @@
     
     echo "</table>";
 ?>
+
+<?php require 'views\partials\add_client.php' ?>
           </div>
         </div>
       </div>

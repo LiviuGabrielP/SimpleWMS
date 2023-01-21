@@ -1,35 +1,32 @@
 <?php
 
 $pagename = "Login";
+$users = $dao->select("users");
+$tableEntries = $dao->getColumns("users");
 
-function performAuth()
+
+   foreach ($users as $user) 
 {
-// check if user is already logged in
+    $employee_entries[] = $user;
+}
+
 if (isset($_SESSION['username'])) {
    header("Location: /");
    exit();
 }
 
+
+
 if (isset($_POST['login'])) {
+
    $username = $_POST['username'];
    $password = $_POST['password'];
 
-   // check if username and password match
-   if ($username == 'admin' && $password == 'password') {
-       $_SESSION['username'] = $username;
-       header("Location: /");
-       exit();
-   } else {
-        header("Location: /login");
-       echo "Invalid username or password.";
-            exit();
-   }
+
+   require 'utils\auth.php';
+    performAuth($employee_entries,$username,$password);
+   
 }
-
-}
-
-
-
 
 
 

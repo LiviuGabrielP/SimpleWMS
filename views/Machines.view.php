@@ -37,33 +37,48 @@
             
   
     
-<form>
 
-<label for="search">Search:</label>
-<input type="text" id="search" name="search">
 
-<label for="order">Order by:</label>
-<select id="order" name="filter">
-  <?php 
-  $numcolumns= count($machine_columns);
-  for($i=0; $i < $numcolumns ; $i++)   
-   {
 
-    echo " <option value=".$machine_columns[$i].">$machine_columns[$i]</option>";
-  
-  }?>
-    
-</select>
+<form action="">
 
-<label for="order">As:</label>
-<select id="order" name="order">
-    <option value="asc">Ascending</option>
-    <option value="desc">Descending</option>
-</select>
+    <label for="search">Filter:</label>
+    <select id="order" name="filter">
+      <?php 
+      $numcolumns= count($machine_columns);
+      for($i=0; $i < $numcolumns ; $i++)   
+       {
 
-<input type="submit" value="Apply">
+        echo " <option  value=".$machine_columns[$i].">$machine_columns[$i]</option>";
+      
+      }?>
+      
+    </select>
+    <input type="text" id="search" name="search">
+    <input type="submit" value="Apply">
 </form>
+<form>
+    <label for="order">Order by:</label>
+    <select id="order" name="ordertype">
+      <?php 
+      $numcolumns= count($machine_columns);
+      for($i=0; $i < $numcolumns ; $i++)   
+       {
 
+        echo " <option value=".$machine_columns[$i].">$machine_columns[$i]</option>";
+      
+      }?>
+      
+    </select>
+
+    <label for="order">As:</label>
+    <select id="order" name="order">
+        <option value="asc">Ascending</option>
+        <option value="desc">Descending</option>
+    </select>
+
+    <input type="submit" value="Apply">
+</form>
 
 
 
@@ -97,7 +112,7 @@ for ($i = 0; $i < $numEntries; $i++) {
 
 echo "</table>";
 ?>
-
+<?php require 'views\partials\add_machine.php' ?>
 
 
           </div>

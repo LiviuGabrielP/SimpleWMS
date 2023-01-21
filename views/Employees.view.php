@@ -38,13 +38,27 @@
 
 
 <!-- LIST ORDERING AND FILTERING OPTIONSs -->
-<form>
 
-    <label for="search">Search:</label>
-    <input type="text" id="search" name="search">
+<form action="">
 
-    <label for="order">Order by:</label>
+    <label for="search">Filter:</label>
     <select id="order" name="filter">
+      <?php 
+      $numcolumns= count($employee_columns);
+      for($i=0; $i < $numcolumns ; $i++)   
+       {
+
+        echo " <option  value=".$employee_columns[$i].">$employee_columns[$i]</option>";
+      
+      }?>
+      
+    </select>
+    <input type="text" id="search" name="search">
+    <input type="submit" value="Apply">
+</form>
+<form>
+    <label for="order">Order by:</label>
+    <select id="order" name="ordertype">
       <?php 
       $numcolumns= count($employee_columns);
       for($i=0; $i < $numcolumns ; $i++)   
@@ -99,7 +113,7 @@
     echo "</table>";
 ?>
 
-
+<?php require 'views\partials\add_employee.php' ?>
 
 
           </div>

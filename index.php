@@ -20,7 +20,11 @@ $routes = [
     '/clients' => 'controllers\clients.php',
     '/about' => 'controllers\about.php',
     '/contact' => 'controllers\contact.php',
-    '/logout' => 'controllers\Logoutfunc.php'
+    '/logout' => 'controllers\Logoutfunc.php',
+    '/add_employee' => 'controllers\add_employee.php',
+    '/add_machine' => 'controllers\add_machine.php',
+    '/add_client' => 'controllers\add_client.php',
+    '/add_user'=> 'controllers\add_user.php'
 
 ];
 

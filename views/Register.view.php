@@ -67,27 +67,32 @@
               </div>
             </div>
             <div class="card-body">
-              <form role="form" class="text-start">
+
+
+              <form method="post"  role="form" class="text-start" action="/add_user">
               <div class="input-group input-group-outline my-3">
                   <label class="form-label">Name</label>
-                  <input type="name" class="form-control">
+                  <input type="name" name="username"  class="form-control">
                 </div>
                 <div class="input-group input-group-outline my-3">
                   <label class="form-label">Email</label>
-                  <input type="email" class="form-control">
+                  <input type="name" name="email"  class="form-control">
                 </div>
                 <div class="input-group input-group-outline mb-3">
                   <label class="form-label">Password</label>
-                  <input type="password" class="form-control">
+                  <input type="password" name="password" class="form-control">
                 </div>
                 
                 <div class="text-center">
-                  <button type="button" class="btn bg-gradient-primary w-100 my-4 mb-2">Sign up</button>
+                  <button type="submit" name="signup" value="signup" class="btn bg-gradient-primary w-100 my-4 mb-2">Sign up</button>
                 </div>
                 <p class="mt-4 text-sm text-center">
                   <a href = "/login"> Already have an account? </a>
                 </p>
               </form>
+
+
+
             </div>
           </div>
         </div>
