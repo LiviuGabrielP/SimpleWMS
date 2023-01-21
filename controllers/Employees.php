@@ -2,19 +2,19 @@
 
 $pagename = "Employees";
 
-$users = $dao->select("users");
-$tableEntries = $dao->getColumns("users");
+$users = $dao->select("Employees");
+$tableEntries = $dao->getColumns("Employees");
 
 
 // GET TABLE TITLES
 foreach($tableEntries as $column)
 {
-    $columns[] = $column;
+    $employee_columns[] = $column;
 }
 
 foreach ($users as $user) 
 {
-    $entries[] = $user;
+    $employee_entries[] = $user;
 }
 
 

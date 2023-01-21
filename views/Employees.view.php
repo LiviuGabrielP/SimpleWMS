@@ -36,17 +36,27 @@
         <div class="row">
           <div class="col-md-12">
 
-          <form>
+
+<!-- LIST ORDERING AND FILTERING OPTIONSs -->
+<form>
+
     <label for="search">Search:</label>
     <input type="text" id="search" name="search">
 
-    <label for="filter">Filter by:</label>
-    <select id="filter" name="filter">
-        <option value="name">Name</option>
-        <option value="age">Age</option>
+    <label for="order">Order by:</label>
+    <select id="order" name="filter">
+      <?php 
+      $numcolumns= count($employee_columns);
+      for($i=0; $i < $numcolumns ; $i++)   
+       {
+
+        echo " <option value=".$employee_columns[$i].">$employee_columns[$i]</option>";
+      
+      }?>
+      
     </select>
 
-    <label for="order">Order by:</label>
+    <label for="order">As:</label>
     <select id="order" name="order">
         <option value="asc">Ascending</option>
         <option value="desc">Descending</option>
@@ -54,16 +64,20 @@
 
     <input type="submit" value="Apply">
 </form>
+
+
+
+
           <?php
     
-    $numEntries = count($entries);
-    $numcolumns= count($columns);
+    $numEntries = count($employee_entries);
+    $numcolumns= count($employee_columns);
     
     echo "<table>";
      echo "<tr>";
     for($i=0; $i < $numcolumns ; $i++)    {
 
-      echo "<th>".$columns[$i]."</th>";
+      echo "<th>".$employee_columns[$i]."</th>";
     
     }
    
@@ -76,7 +90,7 @@
             
         echo "<tr>";
             for ($it = 0; $it < $numcolumns; $it++) {
-              echo "<td>" . $entries[$i][$columns[$it]] . "</td>";
+              echo "<td>" . $employee_entries[$i][$employee_columns[$it]] . "</td>";
              
             }
         echo "</tr>";

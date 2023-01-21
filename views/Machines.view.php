@@ -36,48 +36,66 @@
           <div class="col-md-12">
             
   
-          <form>
-    <label for="search">Search:</label>
-    <input type="text" id="search" name="search">
+    
+<form>
 
-    <label for="filter">Filter by:</label>
-    <select id="filter" name="filter">
-        <option value="name">Name</option>
-        <option value="age">Age</option>
-    </select>
+<label for="search">Search:</label>
+<input type="text" id="search" name="search">
 
-    <label for="order">Order by:</label>
-    <select id="order" name="order">
-        <option value="asc">Ascending</option>
-        <option value="desc">Descending</option>
-    </select>
+<label for="order">Order by:</label>
+<select id="order" name="filter">
+  <?php 
+  $numcolumns= count($machine_columns);
+  for($i=0; $i < $numcolumns ; $i++)   
+   {
 
-    <input type="submit" value="Apply">
+    echo " <option value=".$machine_columns[$i].">$machine_columns[$i]</option>";
+  
+  }?>
+    
+</select>
+
+<label for="order">As:</label>
+<select id="order" name="order">
+    <option value="asc">Ascending</option>
+    <option value="desc">Descending</option>
+</select>
+
+<input type="submit" value="Apply">
 </form>
-          <?php
-    
-    $numEntries = count($entries);
-    
-    echo "<table>";
-    
-    echo "<tr>";
-    echo "<th>Name</th>";
-    echo "<th>Age</th>";
-    echo "<th>Gender</th>";
-    echo "<th>Pay</th>";
 
+
+
+
+      <?php
+
+$numEntries = count($machine_entries);
+$numcolumns= count($machine_columns);
+
+echo "<table>";
+ echo "<tr>";
+for($i=0; $i < $numcolumns ; $i++)    {
+
+  echo "<th>".$machine_columns[$i]."</th>";
+
+}
+
+
+
+
+echo "</tr>";
+
+for ($i = 0; $i < $numEntries; $i++) {
+        
+    echo "<tr>";
+        for ($it = 0; $it < $numcolumns; $it++) {
+          echo "<td>" . $machine_entries[$i][$machine_columns[$it]] . "</td>";
+         
+        }
     echo "</tr>";
-    
-    for ($i = 0; $i < $numEntries; $i++) {
-        echo "<tr>";
-        echo "<td>" . $entries[$i]['Name'] . "</td>";
-        echo "<td>" . $entries[$i]['Age'] . "</td>";
-        echo "<td>" . $entries[$i]['Gender'] . "</td>";
-        echo "<td>" . $entries[$i]['Pay'] . "</td>";
-        echo "</tr>";
-    }
-    
-    echo "</table>";
+}
+
+echo "</table>";
 ?>
 
 

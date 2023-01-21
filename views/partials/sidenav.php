@@ -34,11 +34,11 @@
               <p>Machines</p>
             </a>
           </li>
-          <li class="<?php if (urlIs("/suppliers")) {
+          <li class="<?php if (urlIs("/clients")) {
                 echo ("active");}?> " ">
-            <a href="/suppliers">
+            <a href="/clients">
             
-              <p>Suppliers</p>
+              <p>Clients</p>
             </a>
           </li>
           <li class="<?php if (urlIs("/about")) {
